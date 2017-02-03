@@ -1,0 +1,64 @@
+ + Debugging
+
+print statements are your first point of call
+after that use gdb (also valgrind) - lldb is the equivalent on osx
+    use gdb by compiling with the -g flag and then invoking gdb with the target
+    program as an argument - e.g cc -g prog.out && gdb prog.out
+    put in breakpoints with - break <line_number> or break <file_name><line_number>
+    run the program inside the debugger with run
+    print variables with print <variable>
+    there are shortcuts - l-list, p-print, c-continue, s-step
+
+ > Bonus learning
+    no main function results in a "_main" undefined error on compilation
+
+ > Function catalog
+
+    function structure -
+        return_type method_name(int param, int another_param) {
+            int result = param + another_param;
+            return result;
+        }
+    call them like so - int added = add_together(10, 19);
+    puts - writes a string to stdout and includes a newline
+    fgets - reads from stdin up until a newline
+
+ > Data types
+
+    + primitives are int,void,char,long,float,double
+
+    + structures are used to declare new types
+    e.g creating a type 'point' that contains two floats
+    typedef struct {
+        float x;
+        float y;
+    } point;
+    typedef stands for type definition
+
+    + pointers are a variation on normal types, declared with a suffixed
+    asterisk e.g int*
+    you can stack pointers e.g char** to create a pointer to pointers to
+    characters.
+    pointers are used for producing strings and list type structures.
+    strings are rep'd as char*
+
+ > Conditionals
+    if (x > 10 && x < 100) {
+    } else {
+    }
+    while (i > 0) {
+    }
+    for (int i = 0; i < 10; i++) {
+    }
+    do { x } while(condition); - a while loop that checks the condition at the end.
+    switch(expression) {
+        case one :
+            x; break;
+        default :
+        x;
+    }
+    continue and break work as you expect from other languages
+
+ > Implicit knowledge
+    main goes at the bottom of a c file - you will get a warning: implicit
+    declaration of function otherwise

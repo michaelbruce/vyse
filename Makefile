@@ -1,2 +1,2 @@
 build: *.c
-	cc -std=c99 -Wall hello_world.c -o hello_world
+	cc -std=c99 -Wall vyse.c -o target/vyse
