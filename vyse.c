@@ -3,6 +3,21 @@
 #include <string.h>
 #include <editline/readline.h>
 
+int character_position(char* content, char character) {
+    char* substring_from_character = strchr(content, character);
+    if (substring_from_character != NULL) {
+        return (int)(substring_from_character - content);
+    } else {
+        return -1;
+    }
+
+}
+
+void extract_sexp(char* input_code) {
+    printf("DEBUG: start - %d\n", character_position(input_code, '('));
+    printf("DEBUG: end - %d\n", character_position(input_code, ')'));
+}
+
 void evaluate(char* input) {
     if (strstr(input, "hello") != NULL) {
         printf("How do you do my friend?\n");
@@ -20,6 +35,7 @@ void prompt_and_respond() {
             break;
         }
         add_history(input);
+        extract_sexp(input);
         evaluate(input);
         free(input);
     }

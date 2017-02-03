@@ -49,6 +49,8 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
     there is short hand e.g char input[2048];
     static can be used to make things global to a file
 
+    + '' are for chars, "" are for char*/strings
+
  > Conditionals
     if (x > 10 && x < 100) {
     } else {
