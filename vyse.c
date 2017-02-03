@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include <editline/readline.h>
+
+void evaluate(char* input) {
+    if (strstr(input, "hello") != NULL) {
+        printf("How do you do my friend?\n");
+    } else {
+        printf("What is this '%s' you speak of?\n", input);
+    }
+}
 
 void prompt_and_respond() {
     puts("Vyse v0.0.1");
@@ -13,12 +20,7 @@ void prompt_and_respond() {
             break;
         }
         add_history(input);
-        // __typeof__ (input);
-        if (strstr(input, "hello") != NULL) {
-            printf("How do you do my friend?\n");
-        } else {
-            printf("What is this '%s' you speak of?\n", input);
-        }
+        evaluate(input);
         free(input);
     }
 }

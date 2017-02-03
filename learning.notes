@@ -23,6 +23,10 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
     puts - writes a string to stdout and includes a newline
     fgets - reads from stdin up until a newline
     typeof(var)
+    + String functions
+        - strchr(string, char) - finds the first occurence of the char in a
+          string or NULL if not found. Find the index by subtracting the
+          string address from what strchr returns e.g (int)(e - string);
 
  > Data types
 
