@@ -41,6 +41,8 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
     characters.
     pointers are used for producing strings and list type structures.
     strings are rep'd as char*
+    there is short hand e.g char input[2048];
+    static can be used to make things global to a file
 
  > Conditionals
     if (x > 10 && x < 100) {
@@ -62,3 +64,5 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
  > Implicit knowledge
     main goes at the bottom of a c file - you will get a warning: implicit
     declaration of function otherwise
+
+c language reference - http://en.cppreference.com/w/c
