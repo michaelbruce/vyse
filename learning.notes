@@ -22,6 +22,7 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
     call them like so - int added = add_together(10, 19);
     puts - writes a string to stdout and includes a newline
     fgets - reads from stdin up until a newline
+    typeof(var)
 
  > Data types
 
@@ -64,5 +65,18 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
  > Implicit knowledge
     main goes at the bottom of a c file - you will get a warning: implicit
     declaration of function otherwise
+    #include x - system c libraries are stored under /usr/include
+
+ > Compiler
+    -ledit - to use 3rd party code you 'link' your program
+    this allows the compiler to directly embed calls to the program in the
+    resulting binary.
+    - preprocess - any lines beginning with # are dealt with by the preprocessor
+    which is the first component run before the main compiler is invoked.
+    - the preprocessor can be used to run os specific code
+    e.g #ifdef _WIN32\n#include<string.h>
+    #ifndef - if not defined
+    #define - creates a macro of sorts, swaps out the definition for the body
+    at precompile time e.g #define MAX(a, b) ((a) > (b) ? (a) : (b))
 
 c language reference - http://en.cppreference.com/w/c
