@@ -1,12 +1,17 @@
 #include <stdio.h>
 
-void hello_world_n_times(int times) {
-    for (int x = 0; x < times; x++) {
-        puts("Greetings my dude!");
+static char input[2048];
+
+void prompt_and_respond() {
+    puts("Vyse v0.0.1");
+    while (1) {
+        fputs(">>> ", stdout);
+        fgets(input, 2048, stdin);
+        printf("No you're a %s", input);
     }
 }
 
 int main(int argc, char** argv) {
-    hello_world_n_times(5);
+    prompt_and_respond();
     return 0;
 }
