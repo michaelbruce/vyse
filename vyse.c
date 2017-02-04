@@ -18,10 +18,16 @@ void extract_sexp(char* input_code) {
     int sexp_end = character_position(input_code, ')');
     printf("DEBUG: start - %d\n", sexp_start);
     printf("DEBUG: end - %d\n", sexp_end);
+
+    char input_copy[256];
+    char *output;
+
+    // XXX expand by if output contains '(' then your work is not yet done.
     if (sexp_start != -1 && sexp_end != -1) {
-        char substring[sexp_end + 1 ];
-        strncpy(substring, input_code, sexp_end + 1);
-        printf("%s\n", substring);
+        strcpy(input_copy, input_code);
+        output = strtok(input_copy, "(");
+        output = strtok(NULL, ")");
+        printf("%s\n", output);
     }
 }
 
