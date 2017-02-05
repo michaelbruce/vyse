@@ -25,8 +25,13 @@ void extract_sexp(char* input_code) {
     // XXX expand by if output contains '(' then your work is not yet done.
     if (sexp_start != -1 && sexp_end != -1) {
         strcpy(input_copy, input_code);
-        output = strtok(input_copy, "(");
-        output = strtok(NULL, ")");
+        if (sexp_start == 0) {
+            strcpy(input_copy, input_copy + 1);
+            output = strtok(input_copy, ")");
+        } else {
+            output = strtok(input_copy, "(");
+            output = strtok(NULL, ")");
+        }
         printf("%s\n", output);
     }
 }
