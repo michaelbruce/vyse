@@ -19,6 +19,7 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
             int result = param + another_param;
             return result;
         }
+    you can't return arrays, you return the address instead so the var must be static.
     call them like so - int added = add_together(10, 19);
     puts - writes a string to stdout and includes a newline
     fgets - reads from stdin up until a newline
