@@ -41,21 +41,25 @@ void extract_sexp(char* input_code) {
     printf("DEBUG: start - %d\n", sexp_start);
     printf("DEBUG: end - %d\n", sexp_end);
 
-    char input_copy[256];
-    char *output;
+    char* input_copy = input_code;
 
+    // XXX current aim is to read ONE sexp before building on this.
     // XXX expand by if output contains '(' then your work is not yet done.
     if (sexp_start != -1 && sexp_end != -1) {
-        strcpy(input_copy, input_code);
-        if (sexp_start == 0) {
-            strcpy(input_copy, input_copy + 1);
-            output = strtok(input_copy, ")");
-        } else {
-            output = strtok(input_copy, "(");
-            output = strtok(NULL, ")");
-        }
-        split_on_whitespace(output);
-        printf("%s\n", output);
+        char* string = strdup(input_copy);
+        strsep(&string, "(");
+        char* inside_sexp = strsep(&string, ")");
+
+        char* operator = strsep(&inside_sexp, " ");
+        int total = 0;
+
+        char* first_operand = strsep(&inside_sexp, " ");
+        char* second_operand = strsep(&inside_sexp, " ");
+
+        total = atoi(first_operand) + atoi(second_operand);
+
+        printf("%s\n", operator);
+        printf("%d\n", total);
     }
 }
 

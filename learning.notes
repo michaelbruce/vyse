@@ -28,6 +28,8 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
         - strchr(string, char) - finds the first occurence of the char in a
           string or NULL if not found. Find the index by subtracting the
           string address from what strchr returns e.g (int)(e - string);
+        - strdup - duplicate a string
+        - strseq - splits on character (mutates input string)
 
  > Data types
 
