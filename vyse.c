@@ -19,22 +19,26 @@ void extract_sexp(char* input_code) {
     printf("DEBUG: start - %d\n", sexp_start);
     printf("DEBUG: end - %d\n", sexp_end);
 
-    char* input_copy = input_code;
-
     // XXX current aim is to read ONE sexp before building on this.
     // XXX expand by if output contains '(' then your work is not yet done.
     if (sexp_start != -1 && sexp_end != -1) {
-        char* string = strdup(input_copy);
+        // XXX why is strdup neccessary aren't parameters recreated as local parameters?
+        char* string = strdup(input_code);
         strsep(&string, "(");
         char* inside_sexp = strsep(&string, ")");
 
         char* operator = strsep(&inside_sexp, " ");
         int total = 0;
+        char* operand;
 
-        char* first_operand = strsep(&inside_sexp, " ");
-        char* second_operand = strsep(&inside_sexp, " ");
+        while ((operand = strsep(&inside_sexp, " ")) != NULL) {
+            total = total + atoi(operand);
+        }
 
-        total = atoi(first_operand) + atoi(second_operand);
+        // char* first_operand = strsep(&inside_sexp, " ");
+        // char* second_operand = strsep(&inside_sexp, " ");
+
+        // total = atoi(first_operand) + atoi(second_operand);
 
         printf("%s\n", operator);
         printf("%d\n", total);
@@ -50,7 +54,7 @@ void evaluate(char* input) {
 }
 
 void prompt_and_respond() {
-    puts("Vyse v0.0.1");
+    puts("Vyse v0.0.2");
     while (1) {
         char* input = readline(">>> ");
         if (!input) {
