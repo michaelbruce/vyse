@@ -13,28 +13,6 @@ int character_position(char* content, char character) {
 
 }
 
-void split_on_whitespace(char* input) {
-    char input_copy[256];
-    strcpy(input_copy, input);
-
-    int counter = 0;
-    char *p = strtok(input_copy, " ");
-    static char *output[10] = { NULL };
-
-    while (p != NULL) {
-        output[counter++] = p;
-        p = strtok(NULL, " ");
-    }
-
-    for (int x = 0; x < sizeof(output); x++) {
-        if (output[x] != NULL) {
-            printf("%s\n", output[x]);
-        } else {
-            break;
-        }
-    }
-}
-
 void extract_sexp(char* input_code) {
     int sexp_start = character_position(input_code, '(');
     int sexp_end = character_position(input_code, ')');
