@@ -9,6 +9,8 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
     print variables with print <variable>
     there are shortcuts - l-list, p-print, c-continue, s-step
 
+using the -v flag for gcc will show you the paths used to include deps like string.h etc
+
  > Bonus learning
     no main function results in a "_main" undefined error on compilation
 
@@ -76,6 +78,10 @@ after that use gdb (also valgrind) - lldb is the equivalent on osx
     main goes at the bottom of a c file - you will get a warning: implicit
     declaration of function otherwise
     #include x - system c libraries are stored under /usr/include
+    calling a method outside of a function definition is treated by the
+    compiler as another function definition leading to a weird error.
+    When using printf, the format string is better be a string literal and not a variable:
+    e.g printf("%s", str_a); instead of printf(str_a);
 
  > Compiler
     -ledit - to use 3rd party code you 'link' your program
